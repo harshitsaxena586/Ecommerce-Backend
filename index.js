@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser')
 const cors = require("cors")
-
+const port = process.env.PORT
 const app = express();
 var router = express.Router()
 app.use(cors())
@@ -23,6 +23,6 @@ app.get('/', (req, res) => {
   res.send('hello backend app!')
 });
 
-app.listen(3000, () => {
+app.listen(port || 3000, () => {
   console.log('server started');
 });
