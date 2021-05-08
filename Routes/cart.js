@@ -34,14 +34,14 @@ router.route("/:user")
 
 router.route("/:user/del")
 .get((req,res)=>{
-  const {cart}=req
-  res.json({succes:true,message:"Cart delete api",cart})
+   res.json({succes:true,message:"Cart delete api"})
 })
 .post(async (req,res)=>{
   const itemId=req.body
+  console.log(itemId)
   const itemToDelete= await Product.findById(itemId._id)
   itemToDelete.remove()
-  res.json({succes:true})
+  res.json({succes:true,itemToDelete})
 })
 
 module.exports = router
