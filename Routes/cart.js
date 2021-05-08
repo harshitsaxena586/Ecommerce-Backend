@@ -1,11 +1,11 @@
 const bodyParser = require('body-parser')
 const express = require('express')
 var router = express.Router()
-const cors = require("cors")
+// const cors = require("cors")
 const {Cart} = require("../models/Cart.model.js")
 const { Product } = require('../models/Product.model.js')
 
-router.use(cors())
+// router.use(cors())
 router.use(bodyParser.json())
 
 router.param("user",async (req,res,next,username)=>{
@@ -26,7 +26,6 @@ router.route("/:user")
 .post(async(req,res)=>{
     let {cart}=req
     const addedItem=req.body
-    console.log(addedItem)
     cart.itemsInCart= cart.itemsInCart.concat(addedItem)
     await cart.save()
     res.json({succes:true,message:"Cart updated"})
@@ -37,11 +36,11 @@ router.route("/:user/del")
    res.json({succes:true,message:"Cart delete api"})
 })
 .post(async (req,res)=>{
-  const itemId=req.body
-  console.log(itemId)
-  const itemToDelete= await Product.findById(itemId._id)
-  itemToDelete.remove()
-  res.json({succes:true,itemToDelete})
+  let {cart}=req
+  const {itemId}=req.body
+  cart.itemsInCart=cart.itemsInCart.filter(({item}) =>item._id!=itemId)
+  await cart.save()
+  res.json({succes:true})
 })
 
 module.exports = router
