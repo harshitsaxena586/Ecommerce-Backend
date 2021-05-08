@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
-// mongoose.connect('mongodb+srv://harshit:hellomongo@cluster0.igfzi.mongodb.net/UserDb?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true})
-// .then(()=>console.log("succesfull mongoose connection"))
-// .catch(error=>console.error(error))
+const ProductSchema = new mongoose.Schema({name:String,img:String,description:String,price:Number,shipping:Number,inStock:Boolean,type:String}) 
 
+const Product = new  mongoose.model("product",ProductSchema)
+
+module.exports ={Product}

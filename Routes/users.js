@@ -10,7 +10,8 @@ const authHandler= async (req,res,next)=>{
   const clientCredentials = req.body
   try {
     const [authUser] = await User.find({userName:clientCredentials.username})
-
+console.log(clientCredentials)
+console.log(authUser)
   if (authUser.password===clientCredentials.password){
     res.json({success:true,message:"welcome user "})
   }

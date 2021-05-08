@@ -6,18 +6,18 @@ const app = express();
 var router = express.Router()
 app.use(cors())
 
-const users = require("./Routes/users.js")
+const { initializeUserbase } = require('./IntialiseDB/UserbaseDB.js');
+initializeUserbase()
 
+const users = require("./Routes/users.js")
 app.use("/users", users)
 
-const products = require("./Routes/Products.js")
+
+const products = require("./Routes/products.js")
 app.use("/products", products)
 
-const cart = require("./Routes/cart.js")
+const cart = require("./Routes/cart.js");
 app.use("/cart", cart)
-
-app.use(bodyParser.json())
-
 
 app.get('/', (req, res) => {
   res.send('hello backend app!')
