@@ -3,8 +3,10 @@ const port = process.env.PORT
 const app = express();
 var router = express.Router()
 var cors = require('cors')
+const bodyParser = require('body-parser')
 
 app.use(cors())
+app.use(bodyParser.json())
 
 const { initializeUserbase } = require('./IntialiseDB/UserbaseDB.js');
 initializeUserbase()
