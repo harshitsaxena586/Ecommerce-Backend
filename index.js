@@ -1,28 +1,26 @@
-require("dotenv").config();
 const express = require('express');
-const bodyParser = require('body-parser')
-const cors = require("cors")
-const port = process.env.PORT || 3000;
+const port = process.env.PORT
 const app = express();
-app.use(cors())
+var router = express.Router()
+
 
 const { initializeUserbase } = require('./IntialiseDB/UserbaseDB.js');
 initializeUserbase()
 
-const users = require("./Routes/users.js")
-app.use("/users", users)
-
-
-// const products = require("./Routes/Products.js")
-// app.use("/products", products)
-
 const cart = require("./Routes/cart.js");
 app.use("/cart", cart)
 
+
+const products = require("./Routes/Products.js")
+app.use("/products", products)
+
+const users = require("./Routes/users.js")
+app.use("/users", users)
+
 app.get('/', (req, res) => {
-  res.send('hello backend app!')
+  res.send('hello  backend app !')
 });
 
-app.listen(port , () => {
+app.listen(port || 3000, () => {
   console.log('server started');
 });
