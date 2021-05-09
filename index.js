@@ -23,6 +23,6 @@ app.get('/', (req, res) => {
   res.send('hello backend app!')
 });
 
-app.listen(port || 3000, () => {
+app.listen(port, () => {
   console.log('server started');
 });
