@@ -13,7 +13,7 @@ const users = require("./Routes/users.js")
 app.use("/users", users)
 
 
-const products = require("./Routes/products.js")
+const products = require("./Routes/Products.js")
 app.use("/products", products)
 
 const cart = require("./Routes/cart.js");
