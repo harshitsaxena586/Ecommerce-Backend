@@ -1,7 +1,6 @@
 const bodyParser = require('body-parser')
 const express = require('express')
 var router = express.Router()
-// const cors = require("cors")
 const { Product } = require('../models/Product.model')
 
 

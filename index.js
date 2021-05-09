@@ -23,6 +23,6 @@ app.get('/', (req, res) => {
   res.send('hello backend app!')
 });
 
-app.listen(process.env.PORT, () => {
+app.listen(port , () => {
   console.log('server started');
 });
