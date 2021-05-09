@@ -3,6 +3,7 @@ const port = process.env.PORT
 const app = express();
 var router = express.Router()
 
+app.use(cors())
 
 const { initializeUserbase } = require('./IntialiseDB/UserbaseDB.js');
 initializeUserbase()
