@@ -21,6 +21,9 @@ app.use("/products", products)
 const users = require("./Routes/users.js")
 app.use("/users", users)
 
+const createSession=require("./Routes/create-checkout-session")
+app.use("/create-checkout-session",createSession)
+
 app.get('/', (req, res) => {
   res.send('hello  backend app !')
 });
