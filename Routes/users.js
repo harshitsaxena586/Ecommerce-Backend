@@ -1,10 +1,8 @@
 const express = require('express')
 var router = express.Router()
 const {User} = require("../models/User.model.js")
-const bodyParser = require('body-parser')
 const {Cart} = require("../models/Cart.model.js")
 
-router.use(bodyParser.json());
 
 const authHandler= async (req,res,next)=>{
   const clientCredentials = req.body
@@ -18,7 +16,6 @@ console.log(authUser)
   } catch (error) {
     console.log(error)
   }
- 
   (res.status(401).json({succes:false,message:"wrong Password"})) 
   next()
 }

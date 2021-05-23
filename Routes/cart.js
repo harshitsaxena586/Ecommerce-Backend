@@ -1,12 +1,7 @@
-const bodyParser = require('body-parser')
 const express = require('express')
 var router = express.Router()
-// const cors = require("cors")
 const {Cart} = require("../models/Cart.model.js")
 const { Product } = require('../models/Product.model.js')
-
-// router.use(cors())
-router.use(bodyParser.json())
 
 router.param("user",async (req,res,next,username)=>{
     const  clientUserName=username

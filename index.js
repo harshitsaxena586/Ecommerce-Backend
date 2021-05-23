@@ -4,6 +4,10 @@ const app = express();
 var router = express.Router()
 var cors = require('cors')
 const bodyParser = require('body-parser')
+const users = require("./Routes/users.js")
+const products = require("./Routes/Products.js")
+const createSession=require("./Routes/create-checkout-session")
+const cart = require("./Routes/cart.js");
 
 app.use(cors())
 app.use(bodyParser.json())
@@ -11,17 +15,12 @@ app.use(bodyParser.json())
 const { initializeUserbase } = require('./IntialiseDB/UserbaseDB.js');
 initializeUserbase()
 
-const cart = require("./Routes/cart.js");
 app.use("/cart", cart)
 
-
-const products = require("./Routes/Products.js")
 app.use("/products", products)
 
-const users = require("./Routes/users.js")
 app.use("/users", users)
 
-const createSession=require("./Routes/create-checkout-session")
 app.use("/create-checkout-session",createSession)
 
 app.get('/', (req, res) => {

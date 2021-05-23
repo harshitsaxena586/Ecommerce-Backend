@@ -1,10 +1,7 @@
-const bodyParser = require('body-parser')
 const express = require('express')
 var router = express.Router()
 const { Product } = require('../models/Product.model')
 
-
-router.use(bodyParser.json())
 
 router.route("/")
 .get(async(req,res)=>{
