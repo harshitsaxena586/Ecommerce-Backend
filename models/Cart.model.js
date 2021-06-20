@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const CartSchema  = new mongoose.Schema({userName:String,itemsInCart:[]}) 
+const CartSchema = new mongoose.Schema({ userId: String, itemsInCart: [] });
 
-const Cart = new  mongoose.model("cart",CartSchema)
+const Cart = new mongoose.model("cart", CartSchema);
 
-module.exports ={Cart}
+module.exports = { Cart };
