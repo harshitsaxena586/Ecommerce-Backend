@@ -25,6 +25,8 @@ app.get("/", (req, res) => {
   res.send("hello  backend app !");
 });
 
+app.use("/create-checkout-session", createSession);
+
 const authTokenHandler = async (req, res, next) => {
   const token = req.headers.authorization;
   try {
@@ -45,8 +47,6 @@ app.use("/cart", cart);
 app.get("/test", (req, res) => {
   res.json({ success: true });
 });
-
-app.use("/create-checkout-session", createSession);
 
 app.listen(port || 4000, () => {
   console.log("server started");
