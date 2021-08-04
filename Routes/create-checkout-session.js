@@ -29,8 +29,8 @@ router
         },
       ],
       mode: "payment",
-      success_url: `/successfullOrder/?userId=${data.userId}`,
-      cancel_url: "https://jainwin-pc-store.vercel.app/",
+      success_url: `https://jainwin-backend.herokuapp.com/successfullOrder/?userId=${data.userId}`,
+      cancel_url: "https://jainwin-social-media.vercel.app/",
     });
 
     res.json({ id: session.id });
