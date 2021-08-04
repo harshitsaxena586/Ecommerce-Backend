@@ -8,6 +8,7 @@ const users = require("./Routes/users.js");
 const products = require("./Routes/Products.js");
 const createSession = require("./Routes/create-checkout-session");
 const cart = require("./Routes/cart.js");
+const successfullOrder = require("./Routes/successfullOrder");
 require("dotenv").config();
 const jwt = require("jsonwebtoken");
 
@@ -21,6 +22,7 @@ app.use("/products", products);
 
 app.use("/users", users);
 
+app.use("/successfullOrder", successfullOrder);
 app.get("/", (req, res) => {
   res.send("hello  backend app !");
 });

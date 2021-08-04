@@ -21,16 +21,16 @@ router
             currency: "inr",
             product_data: {
               name: data.name,
-              images: [data.img]
+              images: [data.img],
             },
-            unit_amount: data.price
+            unit_amount: data.price,
           },
-          quantity: 1
-        }
+          quantity: 1,
+        },
       ],
       mode: "payment",
-      success_url: "https://example.com/success",
-      cancel_url: "https://example.com/cancel"
+      success_url: `/successfullOrder/?userId=${data.userId}`,
+      cancel_url: "https://jainwin-pc-store.vercel.app/",
     });
 
     res.json({ id: session.id });

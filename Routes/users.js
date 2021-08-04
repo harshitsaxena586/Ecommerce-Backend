@@ -5,7 +5,6 @@ const { Cart } = require("../models/Cart.model.js");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-
 router.route("/s").post(async (req, res) => {
   const { userName, password } = req.body;
   const hashedPassword = await bcrypt.hash(password, 10);
@@ -25,7 +24,7 @@ router.route("/").post(async (req, res) => {
   }
   if (await bcrypt.compare(password, user.password)) {
     const token = jwt.sign({ userName, id: user._id }, process.env.secretKey, {
-      expiresIn: "10d",
+      expiresIn: "2y",
     });
     res.json({ success: true, token, userId: user.id });
   } else {
